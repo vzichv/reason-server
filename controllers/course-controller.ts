@@ -21,8 +21,8 @@ class CourseController {
           response.status(200).send(data);
         }
       );
-    } catch (error: any) {
-      response.status(500).send(error.message);
+    } catch (error) {
+      response.status(500).send(error);
     }
   }
 
