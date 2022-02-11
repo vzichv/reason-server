@@ -14,6 +14,12 @@ const router: Router = Router();
 
 // Global middlewares
 router.use(cookieParser(SECRET_COOKIE), express.json());
+router.use((request, response, next) => {
+  response.set('Access-Control-Allow-Origin', `http://localhost:3000`);
+  response.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  response.set('Access-Control-Allow-Methods', 'GET, PATCH, PUT, POST, DELETE, OPTIONS');
+  next();
+});
 
 // AdminController
 router.post('/api/login', AdminController.login);
@@ -21,10 +27,8 @@ router.post('/api/logout', AdminController.logout);
 router.get('/api/refresh', AdminController.refresh);
 
 // CourseController
-router.post('/api/courses', CourseController.create);
+router.post('/api/courses', CourseController.applyChanges);
 router.get('/api/courses', CourseController.read);
-router.put('/api/courses', CourseController.update);
-router.delete('/api/courses', CourseController.delete);
 
 // ReviewController
 
