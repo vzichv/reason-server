@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { Course, CourseModel } from './../models/course';
 
 class CourseController {
-  public async create(request: Request, response: Response): Promise<void> {
+  public async applyChanges(request: Request, response: Response): Promise<void> {
     try {
       const {courses, deletedCourses}: {courses: Course[], deletedCourses: string[]} = request.body;
       
