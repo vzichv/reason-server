@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 // Controllers
 import AdminController from './../controllers/admin-controller';
 import CourseController from './../controllers/course-controller';
+import ReviewController from './../controllers/review-controller';
 
 // .env variables
 const DEFAULT_SECRET_COOKIE: string = '1234567890';
@@ -31,6 +32,8 @@ router.post('/api/courses', CourseController.applyChanges);
 router.get('/api/courses', CourseController.read);
 
 // ReviewController
+router.post('/api/reviews', ReviewController.applyChanges);
+router.get('/api/reviews', ReviewController.read);
 
 // OfferController
 
